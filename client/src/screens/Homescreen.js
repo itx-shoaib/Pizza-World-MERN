@@ -9,7 +9,10 @@ const Homescreen = () => {
         {pizzas.map(pizza=>{
             return <>
                 <div className="col-md-4">
+                    <div>
                     <Pizzas pizza={pizza} />
+
+                    </div>
                 </div>
             </>
         })}
