@@ -1,7 +1,9 @@
+// Import section
 import React,{useState} from 'react'
-import pizzas from '../pizzasdata'
 
+// Using mapping data of pizza from homescreen as a props
 const Pizzas = ({pizza}) => {
+    // Using useState for setting the quantity and varient
     const [quantity, setquantity] = useState(1)
     const [varient, setvarient] = useState('small')
   return (
@@ -12,7 +14,9 @@ const Pizzas = ({pizza}) => {
         <div className="flex-container">
             <div className="w-100 m-1">
                 <p>Varients</p>
+                {/* Using useState for changing the value of varient i.e. small,medium,large */}
                 <select className='form-control' value={varient} onChange={(e)=>{setvarient(e.target.value)}}>
+                    {/* Mapping varient in pizza array */}
                     {pizza.varients.map(varient=>{
                         return <option value={varient}>{varient}</option>
                     })}
@@ -20,7 +24,9 @@ const Pizzas = ({pizza}) => {
             </div>
             <div className="w-100 m-1">
                 <p>Quantity</p>
+                {/* Using useState for changing the value of quantity i.e. 1,2,3,4.. */}
                 <select className='form-control' value={quantity} onChange={(e)=>{setquantity(e.target.value)}}>
+                    {/* Mapping array of with adding 1 in previous until 10 */}
                     {[...Array(10).keys()].map((x,i)=>{
                         return <option value={i+1}>{i+1}</option>
                     })}
@@ -30,6 +36,7 @@ const Pizzas = ({pizza}) => {
 
         <div className="flex-container">
             <div className='m-1 w-100'>
+                {/* Showing the price of item by varient and multiply it with its quantity */}
                 <h1 className='mt-1'>Price: Rs.{pizza.prices[0][varient]*quantity}</h1>
             </div>
             <div className='m-1 w-100'>

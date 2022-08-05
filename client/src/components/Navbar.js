@@ -1,3 +1,4 @@
+// Import section
 import React from 'react'
 
 function Navbar() {
