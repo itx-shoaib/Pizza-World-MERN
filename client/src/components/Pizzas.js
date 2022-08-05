@@ -1,15 +1,24 @@
 // Import section
-import React,{useState} from 'react'
+import React,{useState} from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 // Using mapping data of pizza from homescreen as a props
 const Pizzas = ({pizza}) => {
     // Using useState for setting the quantity and varient
     const [quantity, setquantity] = useState(1)
     const [varient, setvarient] = useState('small')
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
   return (
     <div style={{margin:'50px'}} className="shadow-lg p-3 mb-5 bg-white rounded">
+        <div onClick={handleShow}>
         <h1>{pizza.name}</h1>
         <img src={pizza.image} alt="..." className='img-fluid' style={{height:'200px',width:'200px'}}/>
+
+        </div>
 
         <div className="flex-container">
             <div className="w-100 m-1">
@@ -43,6 +52,21 @@ const Pizzas = ({pizza}) => {
                 <button className="btn">Add to Cart</button>
             </div>
         </div>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>{pizza.name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+            <img src={pizza.image} alt="..." className='img-fluid' style={{height:'400px'}}/>
+            <p>{pizza.description}</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   )
 }
