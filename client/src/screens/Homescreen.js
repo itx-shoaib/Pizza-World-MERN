@@ -1,9 +1,17 @@
 // Import section
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import Pizzas from '../components/Pizzas'
 import pizzas from '../pizzasdata'
+import {useDispatch,useSelector} from 'react-redux'
+import { getAllPizzas } from '../actions/pizzaActions'
 
 const Homescreen = () => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    // Calling the action name
+    dispatch(getAllPizzas())
+  }, [])
+  
   return (
     <>
     {/* Making a row and rendering pizza data in col-md-4 */}
