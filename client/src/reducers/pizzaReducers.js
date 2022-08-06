@@ -1,4 +1,4 @@
-export const getAllPizzasreducer=(state={},action)=>{
+export const getAllPizzasReducer=(state={},action)=>{
     switch (action.type) {
         case 'GET_PIZZAS_REQUEST':
             return {
