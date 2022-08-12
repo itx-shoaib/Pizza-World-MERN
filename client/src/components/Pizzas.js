@@ -12,6 +12,10 @@ const Pizzas = ({pizza}) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    function addToCart(){
+
+    }
+
   return (
     <div style={{margin:'50px'}} className="shadow-lg p-3 mb-5 bg-white rounded">
         <div onClick={handleShow}>
@@ -49,7 +53,7 @@ const Pizzas = ({pizza}) => {
                 <h1 className='mt-1'>Price: Rs.{pizza.prices[0][varient]*quantity}</h1>
             </div>
             <div className='m-1 w-100'>
-                <button className="btn">Add to Cart</button>
+                <button className="btn" onClick={addToCart}>Add to Cart</button>
             </div>
         </div>
 
